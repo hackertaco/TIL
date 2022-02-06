@@ -24,3 +24,17 @@ function helloGeneric<T>(message: T): T {
     return message
 }
 ```
+
+---
+
+사용법은, 함수를 호출할 때 직접 제네릭 타입을 지정하는 방식이 있다.
+혹은, 따로 지정하지 않고 그냥 추론 규정을 따르는 경우가 있다. 
+```typescript
+function helloBasic<T>(message: T): T{
+    return message;
+}
+
+helloBasic<string>("Mark")
+helloBasic(36)
+
+```
