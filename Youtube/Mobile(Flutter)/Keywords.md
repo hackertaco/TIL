@@ -6,4 +6,7 @@
 - FocusScope 어떤 위젯까지? 범위 식별
 - Image.asset 편하게 이미지 가져올 수 있음
 - Expanded 화면 가득 채우도록 처리
-
+- Future Builder 내부에 context, snapshot 존재, 위젯으로 표현된다. 첫번째 인자값으로 Future 넣어주고, 그 다음 인자값으로는 함수를 넣어준다
+- snapshot.connectionState는 어떤 상황인지 파악하는 것
+- CircularProgressIndicator()는 로딩중...애니메이션 제공
+- 
