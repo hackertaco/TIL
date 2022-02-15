@@ -16,3 +16,8 @@ Resolving dependencies of `Podfile`
 
 https://github.com/flutter/flutter/issues/70796 해당 방법으로 해결함
 x86에 ffi를 설치해서 해결
+
+## 내 위치?
+XCode에서 시뮬레이션을 돌렸을 때, 내 위치를 찾지 못했는데 그 이유는 시뮬레이터에 GPS기능이 돌지 않아서였다.
+만약 위치 설정을 하고싶다면 따로 Features>Location 작업이 필요하다.
+
