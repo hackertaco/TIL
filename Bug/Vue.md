@@ -3,3 +3,8 @@
 도무지 작동을 하지 않음
 - 해결 방법: 부모 component에서 import한 component에 @click.stop을 거는 것이 아닌,
 해당 컴포넌트 <파일>에 직접 @click.stop 적용 
+
+
+## 구글 포토 src가 안 먹을 때
+rel 속성을 확인해본다
+리퍼러 헤더를 noreferrer로 넘기지 않을 수가 있다.
