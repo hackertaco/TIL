@@ -9,4 +9,7 @@
 - Future Builder 내부에 context, snapshot 존재, 위젯으로 표현된다. 첫번째 인자값으로 Future 넣어주고, 그 다음 인자값으로는 함수를 넣어준다
 - snapshot.connectionState는 어떤 상황인지 파악하는 것
 - CircularProgressIndicator()는 로딩중...애니메이션 제공
+- 만약 appbar의 배경을 지우고 싶을 경우? backgroundColor: Color.transparent 처리, elevation: 0.0를 한 후 extendbodybehind:true 처리
+- Datetime이나 Duration은 core 라이브러리에 다 기본 내장되어있음
+- 그러나, Dateformat을 하고 싶을 경우 Intl package를 다운받아야함
 - 
