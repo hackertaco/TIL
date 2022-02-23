@@ -35,10 +35,15 @@
 각 과정에 있어서 하는 일이 다르기 때문에, 이슈 발생 시 문제의 원인이 어느 지점에 있는지 알 수 있다.
 ### 부팅
    - 전원을 눌러 메인보드에 전력을 공급한다.
+   - CPU가 on -> CPU는 ROM에 있는 BIOS data 읽어온다.
    - ROM의 BIOS 루틴 시작 (셀프테스트로 하드웨어 테스트를 진행한다.)
-   - MBR에 존재하는 부팅 정보를 읽어오는 부트스트랩 시작
-   - RAM에 부트로더 적재
-   - 
+   - Bios는 Disk의 MBR에 존재하는 부팅 정보를 읽어오는 부트스트랩 시작
+   - MBR의 부트 코드가 실행되는데, 이는 부팅 가능한 MBR 내부의 파티션을 찾는 역할이다.
+   - RAM에 부트로더(부팅 정보) 적재
+
+* BIOS: Basic Input Output System
+* MBR: Master Boot Record
+* Read-Only Memory: ROM
 
 # 인터럽트 
 말 그대로 끼어들기이지만,
