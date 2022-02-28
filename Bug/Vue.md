@@ -8,3 +8,6 @@
 ## 구글 포토 src가 안 먹을 때
 rel 속성을 확인해본다
 리퍼러 헤더를 noreferrer로 넘기지 않을 수가 있다.
+
+## 갑자기 ERR-connection-timed-out 에러가 뜰 때
+`vue.config.js` devServer 객체 내 port번호를 localHost와 일치시켜야
