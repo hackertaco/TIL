@@ -11,3 +11,6 @@ rel 속성을 확인해본다
 
 ## 갑자기 ERR-connection-timed-out 에러가 뜰 때
 `vue.config.js` devServer 객체 내 port번호를 localHost와 일치시켜야
+
+## Vue에 바인딩된 sync값의 경우
+내부 내용을 정확히 짚어주어야 한다. deep하게 적용되지 않을 수가 있다.
