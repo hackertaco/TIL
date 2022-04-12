@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div class="branch_main_container">
+  <div class="branch_main_title">공업사스토어의 각 지점은<br/>
+    <span style="font-weight:700">자동차 공업사를 위한 최대의 역량을 제공합니다.</span></div>
+  <div class="branch_main_cards_container">
+    <a href="branch#s202204112daee7fb51c5e" class="branch_main_card">
+
+      <div class="branch_main_card_title">오프라인</div>
+      <div class="branch_main_card_contents">지점 인근 지역 페인트 및 기자재<br/>
+        2시간 이내로 배송!</div>
+    </a>
+
+    <a class="branch_main_card" href="branch#s2022041179537e322a3d8">
+      <div class="branch_main_card_title">온라인</div>
+      <div class="branch_main_card_contents">전 세계 페인트 및 기자재 공급<br/>
+        국내 최대 온라인 커머스</div>
+    </a>
+    <a class="branch_main_card"  href="branch#s2022041136f0245f25a7c">
+      <div class="branch_main_card_title">오프라인</div>
+      <div class="branch_main_card_contents">수입차 서비스센터<br/>
+        확보 1위</div>
+    </a>
+  </div>
+</div>
+
+<style>
+  .branch_main_container{
+    width: 100%;
+    height: calc(100vh - 90px);
+    color: #fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .branch_main_title{
+    font-size:2.6vw;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 15vh;
+    text-align:center;
+    margin-bottom: 9.6vh;
+  }
+  .branch_main_cards_container{
+    width: 72.2vw;
+    height: 282px;
+    display:flex;
+    color: #fff;
+    justify-content:space-between;
+  }
+  .branch_main_card{
+    color: #fff !important;
+    width: 32.1%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.26);
+    border-radius: 30px 30px 30px 0px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    backdrop-filter: blur(17px);
+    cursor:pointer;
+  }
+  .branch_main_card:hover{
+    background: rgba(0, 0, 0, 0.5);
+
+  }
+  .branch_main_card_title{
+    font-weight:700;
+    font-size: 2.08vw;
+    margin-top:79px;
+    margin-bottom:22px;
+  }
+  .branch_main_card_contents{
+    font-weight:500;
+    font-size: 1.04vw;
+    text-align:center;
+  }
+</style>
+<div class="map_offline_container">
+  <div class="map_offline_btn_container">
+    <div class="map_offline_btn_box">
+      <div class="map_offline_btn_title">오프라인 지점</div>
+      <div class="map_offline_btns map_btns_container">
+      </div>
+      <div class="map_offline_btns2 map_btns_container">
+      </div>
+      <div class="map_offline_direction">충청남도 서산시 음암면 문양군마루길 3</div>
+    </div>
+  </div>
+  <div id="daumRoughmapContainer1649733316649" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+
+</div>
+
+<style>
+  .map_offline_direction, .map_online_direction{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 35px;
+    width: 100%;
+    text-align: center;
+
+    color: #747474;
+  }
+  .map_offline_container{
+    width: 100%;
+    height: 801px;
+    display:flex;
+  }
+  .map_offline_btn_container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 57.2%;
+    height: 100%;
+  }
+  .map_offline_btn_box{
+    width: 61%;
+    height: 42.5%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .map_offline_btn_title{
+    font-weight: 900;
+    font-size: 64px;
+    line-height: 93px;
+    margin-bottom:29px;
+    width: 120%;
+    text-align: center;
+  }
+  .map_offline_btns{
+
+    width: 100%;
+    margin-bottom:20px;
+
+  }
+  .map_btns_container{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+  }
+  .map_offline_btns2{
+    width: 74.2%;
+    margin-bottom:29px;
+  }
+  .map_btns{
+    cursor: pointer;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 19px 19px 19px 0px;
+    width: 7.96vw;
+    height: 3.43vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .root_daum_roughmap{
+    width: 42.8% !important;
+    height: 100% !important;
+  }
+  .root_daum_roughmap .wrap_map{
+    width: 100%;
+    height: 100% !important;
+  }
+  .non_selected{
+    background: #FFFFFF;
+    color:#262626;
+  }
+  .non_selected:hover{
+    background: #262626;
+    color:#FFFFFF;
+    font-weight:700;
+  }
+  .selected{
+    background: #262626;
+    color:#FFFFFF;
+    font-weight:700;
+  }
+</style>
+<script charset="UTF-8">
+  const branch_list= [
+    {
+      "branch_name": '서산점',
+      "branch_timestamp": "1649733316649",
+      "branch_key": "29tz2",
+      "branch_direction": "충청남도 서산시 음암면 문양군마루길 3",
+    },
+    {
+      "branch_name": '동대문점',
+      "branch_timestamp": "1649743187228",
+      "branch_key": "29t6z",
+      "branch_direction": "서울특별시 동대문구 한천로 74 (장안동)",
+    },
+    {
+      "branch_name": '강동점',
+      "branch_timestamp": "1649734361708",
+      "branch_key": "29tzf",
+      "branch_direction": "경기도 하남시 광암동 408-4",
+    },
+    {
+      "branch_name": '화성점',
+      "branch_timestamp": "1649738250178",
+      "branch_key": "29t36",
+      "branch_direction": "경기도 화성시 향남읍 서봉로 643",
+    },
+    {
+      "branch_name": '수원점',
+      "branch_timestamp": "1649738328245",
+      "branch_key": "29t38",
+      "branch_direction": "경기도 수원시 권선구 오목천동38-1번지",
+    },
+    {
+      "branch_name": '송림점',
+      "branch_timestamp": "1649738368228",
+      "branch_key": "29t3c",
+      "branch_direction": "인천광역시 동구 방축로 153, K동 101호",
+    },
+    {
+      "branch_name": '학익점',
+      "branch_timestamp": "1649738416743",
+      "branch_key": "29t3g",
+      "branch_direction": "인천광역시 미추홀구 아암대로227번길 12-1 (주)클래슨5동",
+    },
+  ]
+
+  // 전체 번호 렌더링
+  const getMap = (timestamp, key) => {
+    new daum.roughmap.Lander({timestamp,key}).render();
+  }
+  const getBtns = () => {
+    branch_list.map((li, i) => {
+      const child = document.createElement("div");
+      const childBranch = document.createTextNode(li.branch_name);
+      child.appendChild(childBranch);
+      child.setAttribute("class", "map_btns non_selected");
+      if(i >= 4){
+        const btn2 = document.getElementsByClassName('map_offline_btns2');
+        btn2[0].appendChild(child);
+      }else{
+        if(i===0){
+          getMap(li.branch_timestamp, li.branch_key)
+          child.setAttribute("class", "map_btns selected");
+        }
+        const btn = document.getElementsByClassName('map_offline_btns');
+        btn[0].appendChild(child);
+      }
+    })
+  }
+
+  getBtns()
+
+  // 클릭하면 두번째 자식 삭제! 후 새로운 div 생성, map 가져오기, 주소 바꿔주기
+
+  const removeMap = () => {
+    const mainNode = document.getElementsByClassName("map_offline_container")[0];
+    mainNode.removeChild(mainNode.children[1]);
+  }
+
+  const addMap = (eve) => {
+    console.log(eve.target.classList)
+    const newMap = document.createElement("div");
+    const selected = document.getElementsByClassName("selected")[0]
+    removeMap()
+    branch_list.map((li) => {
+      if(li.branch_name === eve.target.innerText){
+        newMap.setAttribute("class", "root_daum_roughmap root_daum_roughmap_landing");
+        newMap.setAttribute("id", "daumRoughmapContainer" + li.branch_timestamp);
+        selected.setAttribute("class","map_btns non_selected")
+        eve.target.setAttribute("class","map_btns selected")
+        document.getElementsByClassName("map_offline_direction")[0].innerText = li.branch_direction
+        document.getElementsByClassName("map_offline_container")[0].appendChild(newMap);
+        getMap(li.branch_timestamp, li.branch_key)
+      }
+    })
+  }
+
+  const addListener = () => {
+    console.log(document.querySelector('.map_btns'))
+    document.querySelectorAll('.map_btns').forEach((btn) => {
+      btn.addEventListener("click", addMap)
+    })
+  }
+  addListener()
+</script>
+<div class="map_offline_container ">
+  <div id="daumRoughmapContainer1649745105981" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+  <div class="map_offline_btn_container bg-grey">
+    <div class="map_offline_btn_box">
+      <a href="https://bodyshopstore.co.kr/" target="_blank">
+        <div class="map_btns_go_online">온라인 스토어 바로가기 ></div></a>
+      <div class="map_offline_btn_title">온라인</div>
+      <div class=" map_btns_container online_box"></div>
+      <div class="map_online_direction">서울특별시 송파구 송파대로 201, 테라타워2 A동 1507 -1508호</div>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .bg-grey{
+    background: #F3F3F2 !important;
+  }
+  .map_btns_go_online{
+    height: 3.43vw;
+    width: 289px !important;
+    background: #fff;
+    margin-bottom:28px !important;
+    cursor: pointer;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 19px 19px 19px 0px;
+
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .online_box{
+    width: 55%;
+    margin-bottom: 29px;
+  }
+  .map_btns_online{
+    cursor: pointer;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 19px 19px 19px 0px;
+    width: 7.96vw;
+    height: 3.43vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .map_btns_go_online:hover{
+    background: #262626;
+    color:#FFFFFF;
+    font-weight:700;
+  }
+</style>
+
+<script>
+  const branch_list_online= [
+    {
+      "branch_name": '본사',
+      "branch_timestamp": "1649745105981",
+      "branch_key": "29t6x",
+      "branch_direction": "서울특별시 송파구 송파대로 201, 테라타워2 A동 1507-1508호",
+    },
+    {
+      "branch_name": '물류센터',
+      "branch_timestamp": "1649745173399",
+      "branch_key": "29t6y",
+      "branch_direction": "경기도 하남시 광암동 408-9",
+    },
+  ]
+  const getBtnsOnline = () => {
+    branch_list_online.map((li, i) => {
+      const child = document.createElement("div");
+      const childBranch = document.createTextNode(li.branch_name);
+      child.appendChild(childBranch);
+      child.setAttribute("class", "map_btns_online non_selected");
+      if(i===0){
+        getMap(li.branch_timestamp, li.branch_key)
+        child.setAttribute("class", "map_btns_online selected");
+      }
+      const btn = document.getElementsByClassName('online_box');
+      btn[0].appendChild(child);
+    })
+  }
+  getBtnsOnline()
+
+  const removeMapOnline = () => {
+    const mainNode = document.getElementsByClassName("map_offline_container")[1];
+    mainNode.removeChild(mainNode.children[0]);
+  }
+
+  const addMapOnline = (eve) => {
+    const newMap = document.createElement("div");
+    const selected = document.getElementsByClassName("selected")[1]
+    removeMapOnline()
+    branch_list_online.map((li) => {
+      if(li.branch_name === eve.target.innerText){
+        console.log(document.getElementsByClassName("map_online_direction"))
+        newMap.setAttribute("class", "root_daum_roughmap root_daum_roughmap_landing");
+        newMap.setAttribute("id", "daumRoughmapContainer" + li.branch_timestamp);
+
+        selected.setAttribute("class","map_btns_online non_selected")
+        eve.target.setAttribute("class","map_btns_online selected")
+
+        document.getElementsByClassName("map_online_direction")[0].innerText = li.branch_direction;
+        document.getElementsByClassName("map_offline_container")[1].insertBefore(newMap, document.getElementsByClassName("map_offline_container")[1].firstChild);
+        getMap(li.branch_timestamp, li.branch_key)
+      }
+    })
+  }
+  const addOnlineListener = () => {
+    console.log(document.querySelector('.map_btns_online'))
+    document.querySelectorAll('.map_btns_online').forEach((btn) => {
+      btn.addEventListener("click", addMapOnline)
+    })
+  }
+  addOnlineListener()
+</script>
+<div class="map_offline_container">
+  <div class="map_offline_btn_container">
+    <div class="map_cps_btn_box">
+      <div class="map_offline_btn_title">천우 페인트 솔루션</div>
+
+      <div class=" map_btns_container_cps">
+        <div class=" map_offline_btns2 map_btns_cps selected">CPS</div>
+
+      </div>
+      <div class="map_offline_direction">서울특별시 성동구 뚝섬로 366</div>
+    </div>
+  </div>
+  <div id="daumRoughmapContainer1649746665441" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+</div>
+
+<style>
+  .map_cps_btn_box{
+    width: 81%;
+    height: 42.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .map_btns_container_cps{
+    display: flex;
+    justify-content: center;
+  }
+  .map_btns_cps{
+    cursor: pointer;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 19px 19px 19px 0px;
+    width: 7.96vw;
+    height: 3.43vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+
+<script charset="UTF-8">
+  const getCPS = () => {
+    new daum.roughmap.Lander({
+      "timestamp" : "1649746665441",
+      "key" : "29t7k",
+    }).render();
+  }
+
+  getCPS()
+</script>
+
+</html>
