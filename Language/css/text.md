@@ -1,5 +1,5 @@
 ### text에 border 주는 법
-
+-webkit-text-stroke: 1px #fff;
 -webkit-text-stroke 값을 준다. 다만 safari나 chrome에서만 작동
 
 혹은, text-shadow를 모든 각도에서 준다.
