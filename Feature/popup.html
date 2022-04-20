@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="popup_container">
+  <div class="popup_box">
+    <div class="popup_close_box">
+      오늘 하루동안 보지 않기
+      <div class="popup_close">
+        <img src="https://cdn.imweb.me/upload/S2022030392bbf1de71822/177e26a836d48.png">
+      </div>
+    </div>
+    <div class="popup_contents_box">
+      <div class="popup_contents_img">
+        <img src="https://cdn.imweb.me/upload/S2022030392bbf1de71822/7698959e68ac5.png"></div>
+      <div class="popup_contents_title">사이트<br/><span>오픈 준비중</span>입니다</div>
+      <div class="popup_contents_line"></div>
+      <div class="popup_contents">보다 나은 서비스 제공을 위해<br/>
+        콘텐츠 준비 중에 있습니다.<br/>
+        빠른 시일 내에 준비하여 찾아뵙겠습니다.</div>
+    </div>
+  </div>
+</div>
+</body>
+<style>
+  .popup_container{
+    position:absolute;
+    width: 100%;
+    height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index: 1000;
+  }
+  .popup_box{
+    min-width: 30%;
+    max-width: 40%;
+    height: 54%;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .popup_close_box{
+    width: 89%;
+    display:flex;
+    justify-content:flex-end;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: right;
+    letter-spacing: -0.02em;
+
+    color: #A9A9A9;
+    margin-top:2.7%;
+    margin-bottom:9.2%;
+  }
+  .popup_close{
+    width: 1.77vw;
+  }
+  .popup_close img{
+    max-width: 100%;
+  }
+  .popup_contents_box{
+    width: 64%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+  .popup_contents_img{
+    width: 4vw;
+    margin-bottom:4.4%;
+  }
+  .popup_contents_img img{
+    max-width: 100%;
+  }
+  .popup_contents_line{
+    width: 100%;
+    height: 1px;
+    background: #EDEDED;
+    margin-bottom: 6.9%;
+  }
+  .popup_contents_title{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #222222;
+    margin-bottom: 6.48%;
+  }
+  .popup_contents_title span{
+    color: pink;
+  }
+  .popup_contents{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    /* or 167% */
+    text-align: center;
+    letter-spacing: -0.02em;
+
+    color: #5A5A5A;
+  }
+</style>
+</html>
