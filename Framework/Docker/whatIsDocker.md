@@ -32,3 +32,11 @@ Host의 80번 포트와 컨테이너의 포트를 연결한다.
 - docker exec
 - docker exec -it ${CONTAINER} /bin/sh :: 컨테이너 대상으로 하는 명령을 실시간으로 보여준다.
 - 실행하고자 하는 명령어를 넣을 수 있다.
+
+### docker image size
+- OS가 차지하는 부분이 상당합니다.
+- 알파인 OS(alpine OS)가 상대적으로 크기가 작다.
+
+
+## docker compose
+- docker run만 하게 되면, 커맨드가 상당히 길어지게 되는데, 
