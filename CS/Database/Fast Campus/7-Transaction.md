@@ -13,7 +13,7 @@ data processing의 집합을 포함한 atomic operation
 - ACID 특성을 지켜야한다.
 
 #### 트랜잭션 states
-![img.png](transaction.png)
+![img.png](../transaction.png)
 
 ---
 
