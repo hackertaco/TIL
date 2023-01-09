@@ -104,7 +104,7 @@ Relation Tree MApper는 스키마 경감을 위해 사용되고, NetworkBuilder�
 
 ## 릴레이션 트리 매핑
 1) 유사성 평가
-![img.png](img/img.png)
+![img.png](../img/img.png)
    n(rt)는 릴레이션 명이 n인 릴레이션 트리, R은 데이터베이스 릴레이션, at은 속성트리
 2) 루트레벨 유사성
 
@@ -113,7 +113,7 @@ Relation Tree MApper는 스키마 경감을 위해 사용되고, NetworkBuilder�
    - 이를 허용하기 위하여, 우리는 이웃 릴레이션 이름과 루트 릴레이션 이름을 매치한다.
    - 어떤 경우에는 n(rt)가 특정되지 않는다. 이 경우, 속성테이블에서 힌트를 얻는다. 
 3) 속성레벨 유사성
-![img.png](img/2.png)
+![img.png](../img/2.png)
 
 직관적으로, 속성 트리 at과 A는 속성명이 비슷할 경우, 속성 트리 조건이 튜플들에의해 만족된다. 
 

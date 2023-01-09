@@ -23,13 +23,6 @@
 우선 네트워크를 생성하고, MySQL 컨테이너를 시작할 때 붙여볼 예정이다.
 
 > docker network create todo-app
-> 
-> docker run -d \
---network todo-app --network-alias mysql \
--v todo-mysql-data:/var/lib/mysql \
--e MYSQL_ROOT_PASSWORD=secret \
--e MYSQL_DATABASE=todos \
-mysql:8.0
 
 - mysql run 하는 코드
 
