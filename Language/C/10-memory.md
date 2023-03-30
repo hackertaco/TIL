@@ -54,11 +54,18 @@ realloc
 memset, memcpy, memcmp
 
 > *void memset(void* dest, int ch, size_t count);
+> 
 > *void memcpy(void* dest, const *void src, size_t count);
-
-src의 데이터를 count byte만큼 dest에 복사
-
+> 
+> src의 데이터를 count byte만큼 dest에 복사
 char로 초기화된다. count는 dest 범위를 넘어서면 안된다.
+> 
+> > *void memcmp(const int* lhs, const int* rhs, size_t count);
+
+- count만큼 메모리 비교
+- 구조체 2개 비교할 때 유용
+  - 구조 가진 구조체 내부는 서로 같은데 외부 구조체는 다르면 문제가 생길 수 있다.
+
 ## 동적 메모리 할당시 문제
 1. malloc 주소를 가지고 포인터 연산에 사용하면 해제시 문제가 발생하므로 복사해서 사용(즉 포인터 분리 필요)
 2. 해제한 메모리 또 해제하려해도 크래시가 날 수 있다.
@@ -77,3 +84,10 @@ char로 초기화된다. count는 dest 범위를 넘어서면 안된다.
 - 정말 주의해야한다.
   - realloc 은 malloc + memcpy + free와 유사하다. 그래서 차라리 이 방법을 안전히 쓰는 경우가 많다.
   - 어짜피 널 퐁린터 반환하면 답이 없으니 그냥 realloc을 사용해서 크래시를 일부러 내는 경우도 있다.
+
+### 동적 메모리의 소유권 문제
+누가 소유하나?> 함수가 되어야한다. (메모리를 생성한) 
+호출자가 함수 호출시, 동적할당인지 아닌지 모른다. 
+
+## 다중 포인터
+두번에 거쳐 값을 찾는다.
