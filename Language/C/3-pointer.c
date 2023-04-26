@@ -100,3 +100,58 @@ int main(void)
 
 
 }
+
+// 벡터 덧셈
+#ifndef VECTOR_H
+#define VECTOR_H
+
+#define VECTOR_LENGTH(3)
+
+void add_vec3(const int* v1, const int* v2, int* out_v3);
+
+#endif
+
+#include "vector.h"
+
+void add_vec3(const int* v1, const int* v2, int* out_v3)
+{
+
+    size_t i = 0;
+    for(i=0; i<VECTOR_LENGTH; ++i){
+    *out_v3++ = *v1++ + *v2++;
+    }
+
+
+}
+
+// 2D 배열을 배열의 배열로 바꾸기.
+
+#ifndef VECTOR_H
+#define VECTOR_H
+
+#define VECTOR_LENGTH(3)
+
+void add_vec3(const int* v1, const int* v2, int* out_v3);
+
+#endif
+
+#include <stdio.h>
+
+int main(void)
+{
+
+    const int nums[3][5] = {
+        {35, 50,65, 24,71},
+        {5, 50,65, 24,71},
+        {35, 30,65, 24,1},
+    }
+// 2d 배열은 연속적으로 저장되어있다. 그래서 nums[2] - nums[0] = 10
+    const int* nums2[3];
+    nums2[0] = nums[0];
+    nums2[1] = nums[1];
+    nums2[2] = nums[2];
+// 배열의 배열은 주소만 저장되어있다. 그래서 &nums2[2] - &nums2[0] = 2
+    printf("nums[0] address: %p\n", (void*) nums[0])
+
+
+}
