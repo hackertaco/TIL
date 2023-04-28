@@ -94,3 +94,43 @@ int main(void)
 }
 
 
+// 색상 표현하기
+
+#ifndef COLOR_H
+#define COLOR_H
+
+typedef union {
+    unsigned int val;
+    struct {
+        unsigned char r;
+        unsigned char g;
+        unsigned char b;
+        unsigned char a;
+    }rgba;
+
+}color_t;
+#endif
+// 구조체를 이용해서 각 채널 값에 접근할 수 있다는 것은 좋은 일이지만, 때로는 전체 값을 한 번에 가져올 수 있으면 좋을 것 같다.
+
+#include <stdio.h>
+#include "color.h"
+
+int main(void)
+{
+    color_t trans_black;
+    color_t red;
+    color_t yellow;
+
+    trans_black.val = 0x0;
+
+    red.val = 0;
+    red.rgba.r = 255;
+    red.rgba.a = 255;
+
+    yellow = red;
+    yellow.rgba.g = 255;
+
+
+
+
+}
