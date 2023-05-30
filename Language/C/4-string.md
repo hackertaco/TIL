@@ -99,14 +99,31 @@ int compare_string(const char* str0, const char* str1);
 
 - strcmp()라는 함수도 있다. 
 - strncmp()는 n 파라미터를 넣어 최대 n 문자까지만 비교하게된다. 
+### 문자열 복사
+```C
+void copy_string(char* dest, const char* src)
+{
+  while(*src != '\0'){
+    *dest++ = *src++;
+  }
+  
+  *dest = '\0';
+}
+```
+> char* strcpy(char* dest, const char* src);
 
+- dest 를 반환
+- 아무도 안쓴다. dest 가 src 보다 짧으면?? 범위 넘어서서 계속 복사한다. 그래서 문제가 있다. 
+- strncpy()가 비교적 안전하다. count 매개변수가 하나 더 들어가서, 그 이상/이하 로 들어오는 src 문자를 제어해준다.
+- C11 에서 나온 strcpy_s()
 ### 문자열 합치기
 > char* strcat(char* dest, const char* src);
 
 - src 문자 dest 뒤에 덧붙임.
 - <string.h> 안에 있다. 
 - dest의 길이가 넘지않게 주의해야한다. 
-- 더 안전하게 strncat()으로 파라미터값을 count를 넣어주어서, 최대 count+1개의 문자를 덮어쓰게 할 수 있다. 
+- 더 안전하게 strncat()으로 파라미터값을 count를 넣어주어서, 최대 count+1개의 문자를 덮어쓰게 할 수 있다.
+  - 근데 이마저도 만약 src > count면, 널문자를 안 넣어줘서 굳이 코드 한줄을 추가해야한다. 
 - 간단히 dest_count - strlen(dest) - 1로 카운트 변수를 설정해주어도 된다.
 
 
@@ -116,10 +133,11 @@ int compare_string(const char* str0, const char* str1);
   > null? "null": result;
 - 존재하는 문자열을 찾으면? 
 - string 찾은 위치부터 시작하는 전체 문자열을 반환해버린다. 
+- 포인터를 그 위치에 옮기고 그 이후부터 반환하는 것
 > char* strstr(const char* str, const char* substr);
 - <string.h> 포함
 - 반환값은 char 포인터
-- 이것을 쓰면, 메모리접근에서 값을 바꾸는 것의 애매함이 있다. 
+- 이것을 쓰면, 메모리접근에서 const char로 매개변수를 주었음에도 값을 바꾸는 것의 애매함이 있다. 
 
 ### 문자열 찾기 함수가 메모리 주소를 반환하는 이유
 - C이기 때문이다. 새로운 문자를 만들면 메모리 관리와 속도가 저하되는 문제가 있다. 
@@ -131,10 +149,21 @@ int compare_string(const char* str0, const char* str1);
 
 ### 문자열 토큰화
 > strtok(input, 구분문자)
-
-input의 다음 토큰을 구하려면 strtok(null, 구분문자)
+- 구분 문자를 널 문자로 바꿔서 반환한다.
+- input의 다음 토큰을 구하려면 strtok(null, 구분문자)
 더이상 토큰이 없으면 null을 반환한다. 
+```C
+char msg[] = "Hi, there. Hello. Bye.";
+const char delims[] = ",. ";
+char* token = strtok(msg, delims);
 
+  while(token != NULL){
+    token = strtok(NULL, delims);
+  }
+```
+- 함수 매개변수로 널이 들어올 때 그전에 받았던 msg를 사용하니 이건 어딘가에 저장되어있어야하는데, 
+  - 함수 내 정적 변수(데이터 섹션)가 적합
+  - 
 ## 문자열 함수의 특징
 - 문자열을 절대 변경하지 않는다. 
 - 변경하더라도 원본은 변경하지않는다. 예외가 있다면 strtok
