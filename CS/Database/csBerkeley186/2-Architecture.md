@@ -64,3 +64,40 @@
 2. Run over filesystem
    - Allocate one Large contiguous file
    
+file > page > record
+disk > memory인 경우 버퍼 매니저에 의해 관리
+
+db file:
+- table encoded as files which are collections of pages
+- unordered
+  - header page id, heap file name
+  - each page contains 2 pointers + free space + data
+  - linked list.. free list 찾기 어려움. 
+  - page directory로 개선할 수는 있다. 
+- clustered, sorted, index files(record, pointer 포함)
+
+### layout of individual page
+- header
+  - # of records
+  - free space
+  - next/last pointer
+  - bitmaps, slot table
+- Things to Address
+  - record length fixed? variable?
+    - depends on record length
+    - fixed
+      - record id = pageid, location in page (offset만 설정하면 된다.) 그리고 그저 append하면 된다! 그런데 삭제할 때, 까다롭다 repack
+      - if unpacked 된다면, 삽입시 첫 empty slot을 찾아야한다. 조금의 오버헤드
+    - variable
+      - footer에 슬롯들이 있고, 이것들이 데이터 비트를 표현한다. free space pointer가 따로 있다. 문제는 fragmentation이 생길 수 있으니 reorganize 한다. 
+      - footer에 슬롯이 부족해지면? 해당 슬롯 수를 계속 트래킹하기는 하는데, 부족해지면 추가한다. 
+      - 이건 fixed length에 비하여, 유연한 공간을 가질 수 있다. 
+  - find records by record id?
+  - how do we add and delete records?
+- 
+
+## How to pack record on a page
+records should be compact in memory and disk format
+- easy case: fixed length
+- if fields are variable length, can store w/padding or comma but comma parse is needed
+  - so add record header (direct access and no escaping like comma delimiter)
