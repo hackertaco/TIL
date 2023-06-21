@@ -36,3 +36,29 @@ self join에도 해당 AS가 사용된다.
 
 ### inner join
 infix notation, 
+
+
+## DDL
+1. Create Schema
+    > CREATE SCHEMA 스키마명 AUTHORIZATION 사용자 id
+2. Create Domain
+    > CREATE DOMAIN SEX CHAR(1) DEFAULT 기본값 CONSTRAINT 제약조건명 CHECK (VALUE IN ('남','여'))
+3. Create Table
+    > CREATE TABLE 테이블명 (속성명 데이터 타입 NOT NULL), PRIMARY KEY(속성명) REFERENCES 참조 테이블(속성명)
+4. Create View
+    > CREATE VIEW 뷰명 AS SELECT 
+5. Create Index 
+    > CREATE INDEX 인덱스명 ON 테이블명(속성명)
+6. ALTER TABLE
+    > ALTER TABLE 테이블명 ADD, ALTER, DROP COLUMN
+
+## DCL
+1. GRANT / REVOKE
+   > GRANT 사용자 등급 TO 사용자_id_리스트
+   
+   > REVOKE 사용자 등급 FROM 사용자_id_리스트
+2. COMMIT: 트랜잭션 처리가 정상적으로 완료된 뒤 트랜잭션이 수행한 내용을 데이터베이스에 반영하는 명령어
+3. ROLLBACK: 변경되었지만 COMMIT 되지는 못한 모든 내용들을 취소 후 데이터베이스를 그 시점으로 돌리는 명령어
+4. SAVEPOINT: 트랜잭션 내에 롤백할 저장점을 지정하는 명령어
+
+## DML
