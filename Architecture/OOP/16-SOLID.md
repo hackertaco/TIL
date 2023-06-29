@@ -39,7 +39,30 @@ SOLID로 이룰 수 있는 것: 유연하다.
 3. 이때 A가 아무 문제없이 작동해야한다. 
 
 즉 부모가 할 수 있던 일은 자식도 할 수 있어야한다. 
-
+```java
+public final class Stack<E> extends ArrayList<E> {
+  @Override
+  public void add(int index, E element){
+    super.add(element);
+  }
+  @Override
+  public E remove(int index){
+    assert this.size() > 0;
+    int lastIndex = size() - 1;
+    E element = get(lastIndex);
+    super.remove(lastIndex);
+  }
+  @Override
+  public boolean remove(Object o){
+    if(this.size() == 0){
+      return false;
+    }
+    remove(0);
+    return true;
+  }
+}
+```
+위의 코드처럼 작성하게 된다면, ArrayList가 선입선출할 수 있게끔 코드가 짜여져도 Stack은 할 수 없다. 따라서 특징에 맞지않는 걸 상속하면 안된다.
 ## 인터페이스 분리 정신
 큰 인터페이스가 몇개 있는 것보단, 작은 인터페이스가 많이 있는 게 좋다. 
 메서드를 한 인터페이스에 넣는 대신, 
@@ -50,4 +73,12 @@ SOLID로 이룰 수 있는 것: 유연하다.
 ## 의존 역전 방식
 추상적인 것에 의존하고 개체끼리 구체적인 것끼리 통신하지 말 것. 그러나, 구체적인 것에 의존하는 것이 필요하다는 점은 이제까지 계속 배워온 사실이다.
 
-### 그냥, 필요하면 사용할 것!
+## 결론
+소프트웨어 품질의 시작은 개발자의 실수 줄이는 시스템 구축. 모두가 이해하기 쉬운 코드를 작성할 것! 
+
+언제부터 디커플링을 고려해야 할까? 
+- 협업환경에서 잦은 변경으로 서로 일 못하는 상황이 생길 때
+- Solid는 그때 사용 검토
+
+필요하면 사용할 것. 필요없는 걸 굳이 하려는 사람은 민폐다.
+
