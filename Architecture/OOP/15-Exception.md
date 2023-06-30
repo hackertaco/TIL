@@ -40,12 +40,16 @@ RuntimeException을 상속 받게 된다.
 예외를 두 분류로 나누었다. 
 checked, unchecked 예외
 
-- unchecked 예외는 C# 예외와 동일하다. 
+- unchecked 예외는 C# 예외와 동일하다. (ex. Arithmatic)
   - 어디서 어떤 예외가 나는지 한눈에 안 보인다. 
   - RuntimeException 상속
-- checked 예외는 컴파일러가 예외처리를 제대로 하는지 확인해준다. 
+  - 컴파일러가 따로 검사해주지 않는다. 
+- checked 예외는 컴파일러가 예외처리를 제대로 하는지 확인해준다. (ex. IOException) 예외가 발생하는 코드에서 1. 그 메서드 안에서 처리하지않거나 2. 처리 하지않을 경우 메서드 시그내처 옆에 표기하지 않으면 컴파일 오류가 난다. 
+> publics final class UserNotFoundException extends Exception
+
+> public User findUser(String username) throws UserNotFoundException{} -> checked 예외를 던지는 메서드다. 다른 메서드에서 발생한 checked 예외를 처리하지 않는다. 
   - try-catch, method 상속
-  - public User findUser(String username) throws UserNotFoundException{}
+  
   - throw 절 안 넣어주면 컴파일오류 뜬다. 
   - Exception 상속 
   - 예전에는 다 checked로 짜기를 바랐다. 그러나 일종의 실패! 이건 클라이언트가 반드시 처리해야할 예외라고 알려주는 용도인데, 그 처리한다는 의미가 무엇인지 분명하지 않다. 
@@ -128,14 +132,12 @@ log 보여주고 정상 종료
   - 그보다 더 장점은 작업하던 내용 날리지 않고 저장 가능
   
 ## 수정과 예외방법
-- 수정
-예: 분모가 0일 경우 1로 바꾼다. 
+- 수정의 예: 분모가 0일 경우 1로 바꾼다. 
   - UX 고려시 사용자에게 올바른 값을 입력하라 다시 요청한다. 
   - 극단적 개체지향파는 이를 배척하려하는데
   - 굳이 UX를 포기할 필요가 없다.
   - 단점은, 문제가 처음 발생한 곳을 파악하기 쉽지않다는 것이다. 
-- 예외
-다른 방법에 비해 성능이 가장 느리다. 
+- 예외: 다른 방법에 비해 성능이 가장 느리다. 
   - 문제가 발생했다는 사실을 알려줄 수 있다.
   - 그 예외를 처리할 수 있음(catch)
 - 위 두가지를 포함하는 개념
