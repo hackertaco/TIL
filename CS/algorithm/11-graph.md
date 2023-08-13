@@ -163,3 +163,88 @@ public static void searchDepthFirst(Node node){
 - 주로 복잡한 네트워크 관계 관련
 - 방대한 양의 데이터에서 연관된 그룹 찾기에 유용하다.
 
+## 너비 우선 탐색
+```java
+
+public static void searchBreadthFirst(Node node){
+    HashSet<Node> discovered = new HashSet<>();
+    Queue<Node> queue = new LinkedList<>();
+
+    queue.add(node);
+    discovered.add(node);
+
+    while(!queue.empty()){
+        Node next = queue.remove();
+
+        System.out.println(next.data);
+
+        for(Node neighbor : next.neighbors){
+            if(!discovered.contains(neighbor)) {
+                queue.add(neighbor);
+                discovered.add(neighbor);
+            }
+        }
+    }
+}
+```
+
+### 최단 경로 찾기
+- 가장 간단하게는 주먹구구식으로 찾으면 된다. 그러나 이는 엄청난 시간 복잡도를 가진다. 
+- BFS를 사용하면 최단 경로를 찾을 수 있다. 시간 복잡도도 O(N+E)다.
+- 현재 깊이의 모든 노드를 방문 후 다음 깊이로 진행하게 되므로, 깊이 n을 뒤지다보면 d 노드를 찾게된다. 그래서 언제나 최단 경로를 찾는 방법이다. 
+
+따라서, BFS로 최단 경로를 찾는 것이 좋은데, 
+코드를 조금 수정해야한다. 시작점에서부터 현 노드까지의 거리를 기억해야하기 때문이다. 
+
+저장법은 
+- 해시 맵에 모든 노드 거리를 저장하거나
+- 2D 배열로 저장한다. 
+- 각 노드 안에 거리를 저장한다. 
+
+```java
+
+public static int findShortestDistance(Node s, Node d){
+    HashSet<Node, Integer> distances = new HashSet<>();
+    Queue<Node> queue = new LinkedList<>();
+
+    queue.add(s);
+    distances.put(s, 0);
+
+    while(!queue.isEmpty()){
+        Node next = queue.remove();
+        int distance = distances.get(next);
+
+        if(next.equals(d)) {
+            return distance;
+        }
+
+        for(Node neighbor : next.neighbors){
+            if(!distances.containsKey(neighbor)) {
+                queue.add(neighbor);
+                distances.put(neighbor, distance + 1);
+            }
+        }
+    }
+    return -1;
+}
+```
+
+- 추적을 위해 추가 정보가 필요하다. 선행 노드와 같은! 
+
+### 각 변의 거리가 다른 최단 경로를 찾기
+이는 BFS로 간단히 해결할 수는 없다. 
+
+### 다익스트라 알고리듬
+위의 사례일 경우, 두 노드 사이의 최단 경로를 찾는다. 
+
+- 방대한 노드 네트워크에 사용하기 충분히 빠르다. 
+- 변의 가중치가 음수인 경우에는 제대로 작동하지는 않는다. 
+
+개념상으로, 모든 노드를 한번씩 방문하며 아래의 연산을 하게된다. 
+1. 아직 방문하지 않은 노드 중 가장 가까운 노드 n을 선택한다. 
+2. n의 각 이웃 노드 m으로 여행하는 거리를 계산한다. 
+3. 이 결과가 m의 기존 거리보다 가까우면 m의 거리를 업데이트하게된다. 
+
+그리고, 모든 노드를 방문하면 최단 거리를 찾는다. 
+
+이건 동적 계획법의 한 사례다. 
