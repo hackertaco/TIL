@@ -273,6 +273,7 @@ public static int findShortestDistance(Node s, Node d){
 
 엣지가 음수를 가지면, 방문한 거리 이상이 될 수 없다.
 이를 처리하는 벨만-포드 알고리듬이 있다.
+
 ---
 ## A* 알고리듬
 정말 많이 쓰는 경로찾기 알고리듬이다. 다익스트라랑 비슷하다.
