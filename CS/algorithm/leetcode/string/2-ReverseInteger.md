@@ -1,5 +1,5 @@
 ## 2. Reverse Integer
-
+https://leetcode.com/explore/item/880
 숫자를 뒤집는 것이다. 처음에는 그냥 배열로 만들어서 거꾸로 만든 뒤 다시 숫자로 만들면 안되는가 하는 생각에 아래와 같은 코드를 작성했는데,
 큰 숫자가 되는 순간 돌아가지를 않았다.
 
@@ -68,6 +68,27 @@ class Solution {
 
     }
 }
+
+class Solution {
+    public int reverse(int x) {
+        int result = 0;
+        while(x != 0){
+            if(result >Integer.MAX_VALUE/10 || result<Integer.MIN_VALUE/10){
+            return 0;
+            }
+            int left = x % 10;
+            result = result * 10 + left;
+            
+        
+            x = x/10;
+            
+        }
+        
+        return result;
+        
+    }
+}
 ```
 ![Alt text](image-2.png)
 
+long을 쓰면 안된다. (조건에 있다.) 따라서 while 문 내에 overflow or underflow가 나지 않게끔 /10으로 조건 절을 걸었다. 
