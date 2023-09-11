@@ -38,6 +38,16 @@ class Solution {
             slow = slow.next;
             right = left;
         }
+        // 위의 코드를 아래와 같이 풀어도 된다.
+        // ListNode nextNode=null;
+        // ListNode prev=null;
+        // for(int i=0;i<cnt;i+=2){
+        //     //System.out.println("i="+i);
+        //     nextNode=head.next;
+        //     head.next=prev;
+        //     prev=head;
+        //     head=nextNode;
+        // }
         if(length % 2 ==0){
                 fast = fast.next;
             }
