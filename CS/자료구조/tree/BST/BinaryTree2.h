@@ -27,5 +27,9 @@ void PreorderTraverse(BTreeNode* bt, VisitFuncPtr action);
 void InorderTraverse(BTreeNode* bt, VisitFuncPtr action);
 void PostorderTraverse(BTreeNode* bt, VisitFuncPtr action);
 
+void ChangeLeftSubTree(BTreeNode * bt, BTreeNode * sub);
+void ChangeRightSubTree(BTreeNode * bt, BTreeNode * sub);
 void DeleteTree(BTreeNode * bt);
+BTreeNode* RemoveLeftTree(BTreeNode* bt);
+BTreeNode* RemoveRightTree(BTreeNode* bt);
 #endif
