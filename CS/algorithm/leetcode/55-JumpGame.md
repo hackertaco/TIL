@@ -1,4 +1,4 @@
-## 55. can jump
+## 55. -can jump
 https://leetcode.com/problems/jump-game/
 문제를 잘 정의하는 것이 중요하다.
 0번째 인덱스에서 해당 인덱스가 가리키는 값까지만 인덱스 점프할 수 있을 때, 인덱스 끝까지 갈 수 있는지를 묻는 문제다. 
